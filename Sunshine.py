@@ -23,6 +23,5 @@ europe = pd.read_html(europeurl)
 
 # for table in tables:
 
-northamericayears =
-
+northamericayears
 print(df)
