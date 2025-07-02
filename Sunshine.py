@@ -22,7 +22,7 @@ oceania = tables[5]
 europeurl = 'https://en.wikipedia.org/wiki/List_of_cities_in_Europe_by_sunshine_duration'
 europe = pd.read_html(europeurl)
 
-data = europe
+data = europe[0]
 
 # for table in tables:
 
@@ -32,7 +32,7 @@ print(europe)
 europe_geolocator = Nominatim(user_agent="europe_geocoder")
 
 def geocode_address(row):
-    location = europe_geolocator.geocode(f"{row['Country']}, {row['City']}")
+    location = europe_geolocator.geocode(f"{row['Country']}, {row['City']}", timeout=10)
     if location:
         return location.latitude, location.longitude
     else:
